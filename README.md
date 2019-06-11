@@ -5,16 +5,16 @@
 对了，有一个事情我还没想清楚，就是数据库查询的时候出现中文，会不会有什么问题？
 
 ## 目录
-EduSys
-|-- EduSys
-|   |-- __init__.py
-|   |-- settings.py
-|   |-- urls.py
-|   `-- wsgi.py
-|-- doc
-|   `-- 教务系统流程图.pdf
-|-- README.md
-`-- manage.py
+EduSys  
+|-- EduSys  
+|   |-- __init__.py  
+|   |-- settings.py  
+|   |-- urls.py  
+|   `-- wsgi.py  
+|-- doc  
+|   `-- 教务系统流程图.pdf  
+|-- README.md  
+`-- manage.py  
 
 
 ## 数据库设计

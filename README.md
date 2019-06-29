@@ -7,30 +7,40 @@
 
 ## 目录
 .  
-|-- EduSys   
-|   |-- settings.py  
-|   |-- urls.py  
-|   |-- wsgi.py  
-|-- README.md  
-|-- apps  
-|   |-- login  
-|       |-- admin.py  
-|       |-- apps.py  
-|       |-- forms.py  
-|       |-- models.py  
-|       |-- templates  
-|       |   |-- login.html  
-|       |   |-- stu_page.html  
-|       |   |-- tch_page.html  
-|       |-- tests.py  
-|       |-- views.py  
-|-- db.sqlite3  
-|-- doc  
-|   |-- flowchart.png  
-|-- manage.py  
-|-- media  
-|-- static  
-|-- templates  
+|-EduSys  
+|   |-settings.py  
+|   |-urls.py  
+|   |-wsgi.py  
+|-README.md  
+|-apps  
+|   |-course  
+|   |   |-admin.py  
+|   |   |-apps.py  
+|   |   |-models.py  
+|   |   |-templates  
+|   |   |   |-course_list.html  
+|   |   |   |-elective.html  
+|   |   |-tests.py  
+|   |   |-views.py  
+|   |-login  
+|       |-admin.py  
+|       |-apps.py  
+|       |-forms.py  
+|       |-models.py  
+|       |-templates  
+|       |   |-login.html  
+|       |   |-stu_page.html  
+|       |   |-tch_page.html  
+|       |-tests.py  
+|       |-views.py  
+|-db.sqlite3  
+|-doc  
+|   |-flowchart.png  
+|-manage.py  
+|-media  
+|-static  
+|-templates  
+
 
 ## 数据库设计
 1. 用户登录信息管理（用户名、密码、身份）
@@ -53,3 +63,7 @@
 #### Added
 - 把登录模块做完了，验证并保存登录信息，跳转到用户主页。  
 - 将数据库改为django自带的sqlite3  
+### [0.0.2] 2019-6-29
+#### Added
+- 学生模块完成，包括选课退课、查看课表和成绩  
+- 教师模块开了个头，具体功能还没有实现

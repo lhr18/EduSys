@@ -23,4 +23,5 @@ urlpatterns = [
     path('addusers/', login_views.addusers),#用于测试时初始化数据库
     path('login/', login_views.login),
     path('elective/', course_views.elective, name='ele_course'),
+    path('record/<int:cno>/', course_views.record, name='record'),
 ]

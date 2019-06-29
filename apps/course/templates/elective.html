@@ -8,7 +8,7 @@
     可选课程：</br>
     {% for i in course_list %} 
     {{i.info.course_name}}
-    <button>选课</button></br>
+    <a href="{% url 'record' i.info.course_no %}"><button>选课</button></br></a>
     {% endfor %}
 </body>
 </html>

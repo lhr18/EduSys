@@ -11,3 +11,7 @@ def elective(request):
     course_list = course_cond.objects.filter(department = stu[0].department).filter(grade = stu[0].grade)
     return render(request, 'elective.html',{'course_list':course_list})
     
+def record(request, cno):
+    
+    return HttpResponse(str(cno))
+    

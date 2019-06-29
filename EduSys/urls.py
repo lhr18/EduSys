@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.login import views
+from apps.login import views as login_views
+from apps.course import views as course_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('addusers/', views.addusers),#用于测试时初始化数据库
-    path('login/', views.login),
+    path('addusers/', login_views.addusers),#用于测试时初始化数据库
+    path('login/', login_views.login),
+    path('elective/', course_views.elective, name='ele_course'),
 ]

@@ -10,10 +10,10 @@
 |-- EduSys   
 |   |-- settings.py  
 |   |-- urls.py  
-|   `-- wsgi.py  
+|   |-- wsgi.py  
 |-- README.md  
 |-- apps  
-|   `-- login  
+|   |-- login  
 |       |-- admin.py  
 |       |-- apps.py  
 |       |-- forms.py  
@@ -21,22 +21,22 @@
 |       |-- templates  
 |       |   |-- login.html  
 |       |   |-- stu_page.html  
-|       |   `-- tch_page.html  
+|       |   |-- tch_page.html  
 |       |-- tests.py  
-|       `-- views.py  
+|       |-- views.py  
 |-- db.sqlite3  
 |-- doc  
-|   `-- flowchart.png  
+|   |-- flowchart.png  
 |-- manage.py  
 |-- media  
 |-- static  
-`-- templates  
+|-- templates  
 
 ## 数据库设计
 1. 用户登录信息管理（用户名、密码、身份）
 2. 学生个人信息（用户名、姓名、院系、年级）
 3. 教师个人信息（用户名、教师工号）
-4. 课程信息（课程编号、课程名、上课时间）（时间要拆开吗？可能有多个时间）
+4. 课程信息（课程号、课程名、上课时间）（可能有多个时间）（暂时不考虑上课时间吧）
 5. 选课条件（课程号、院系、年级）
 6. 学生选课记录（用户名、课程号、成绩）
 7. 授课信息（课程号、教师工号）
@@ -47,7 +47,7 @@
 ### [0.0.0] 2019-6-11
 #### Added
 - 什么也没写，今天有点时间，就先把项目建起来。
-### [0.0.0] 2019-6-29
+### [0.0.1] 2019-6-29
 #### Added
 - 把登录模块做完了，验证并保存登录信息，跳转到用户主页。  
 - 将数据库改为django自带的sqlite3  

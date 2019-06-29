@@ -7,7 +7,7 @@
 <body>
     可选课程：</br>
     {% for i in course_list %} 
-    {{i.course_no}}
+    {{i.info.course_name}}
     <button>选课</button></br>
     {% endfor %}
 </body>

@@ -12,7 +12,7 @@ class course_cond(models.Model):
     course_no = models.CharField(max_length=30)
     department = models.CharField(max_length=30)
     grade = models.IntegerField()
-    #info = models.ForeignKey(course_info, on_delete = models.CASCADE, null=True, blank=True, default=None)
+    info = models.ForeignKey(course_info, on_delete = models.CASCADE, null=True, blank=True, default=None)
     
     def __str__(self):
         return self.course_no

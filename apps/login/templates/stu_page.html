@@ -7,7 +7,6 @@
 <body>
     用户名：{{username}}
     <a href="{% url 'ele_course'%}"><button>选课</button></a>
-    <a href="/course/"><button>已选课程</button></a>
-    <a href="/grade/"><button>成绩查询</button></a>
+    <a href="{% url 'list_course'%}"><button>查看课程</button></a>
 </body>
 </html>

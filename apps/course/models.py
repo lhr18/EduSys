@@ -20,8 +20,8 @@ class course_cond(models.Model):
 class stu_course(models.Model):
     username = models.CharField(max_length=30)
     course_no = models.CharField(max_length=30)
-    score = models.IntegerField()
+    score = models.IntegerField(null=True, blank=True, default=None)
     
     def __str__(self):
-        return self.username +''+ course_no
+        return self.username + ' ' + self.course_no
         

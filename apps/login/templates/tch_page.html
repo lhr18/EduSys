@@ -5,6 +5,14 @@
 </head>
 <h1>教师主页</h1>
 <body>
-    用户名：{{username}}
+    用户名：{{username}}</br>
+    课程列表：</br>
+    {% for course in clist %} 
+    <a href="{% url 'input_grade' course.course_no %}"><button>录入成绩</button></a>
+    <a href="{% url 'release_homework' course.course_no %}"><button>上传作业</button></a>
+    {{course.course_name}}
+    </br>    
+    {% endfor %}
+    
 </body>
 </html>

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import AddForm
 
 from apps.login.models import user_pwd
+from apps.course.models import course_info
  
 def addusers(request):
     user_pwd.objects.create(username="lhr", password="111", role=1)
@@ -30,7 +31,8 @@ def login(request):
             elif pwd_check[0].password == pwd and pwd_check[0].role == 2:
                 request.session['username'] = uname
                 #request.session['role'] = 2
-                return render(request,'tch_page.html',{'username':uname})
+                clist = course_info.objects.filter(course_teacher = uname)
+                return render(request,'tch_page.html', {'username':uname, 'clist':clist})
             else:
                 return HttpResponse('wrong password')
 

@@ -4,6 +4,7 @@ from django.db import models
 class course_info(models.Model):
     course_no = models.CharField(max_length=30)
     course_name = models.CharField(max_length=30)
+    course_teacher = models.CharField(max_length=30, null=True, blank=True, default=None)
     
     def __str__(self):
         return self.course_no

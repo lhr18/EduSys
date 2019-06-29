@@ -17,3 +17,11 @@ class stu_info(models.Model):
     
     def __str__(self):
         return self.username
+        
+class teacher_info(models.Model):
+    username = models.CharField(max_length=30)
+    name = models.CharField(max_length=10)
+    
+    def __str__(self):
+        return self.username
+        

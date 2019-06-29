@@ -26,4 +26,6 @@ urlpatterns = [
     path('list_course/', course_views.list_course, name='list_course'),
     path('record/<int:cno>/', course_views.record, name='record'),
     path('giveup/<int:cno>/', course_views.giveup, name='giveup'),
+    path('input_grade/<int:cno>/', course_views.input_grade, name='input_grade'),
+    path('release_homework/<int:cno>/', course_views.release_homework, name='release_homework'),
 ]

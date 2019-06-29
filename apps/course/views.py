@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from apps.login.models import stu_info
 from apps.course.models import course_cond
+from apps.course.models import course_info
 from apps.course.models import stu_course
 # Create your views here.
 def elective(request):
@@ -27,5 +28,17 @@ def list_course(request):
     if len(course_list)==0:
         return HttpResponse("no course")
     else:
+        #暂时不知道怎么加属性，索性将课程号替换为课程名好了
+        for course in course_list:
+            cname = course_info.objects.filter(course_no = course.course_no)
+            course.course_no = cname[0].course_name
         return render(request, 'course_list.html',{'course_list':course_list})
-    
+ 
+def input_grade(request, cno):
+    #TODO: finish
+    return HttpResponse('input_grade'+str(cno))
+ 
+def release_homework(request, cno):
+    #TODO: finish
+    return HttpResponse('release_homework'+str(cno))
+ 

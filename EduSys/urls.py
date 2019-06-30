@@ -28,4 +28,5 @@ urlpatterns = [
     path('giveup/<int:cno>/', course_views.giveup, name='giveup'),
     path('input_grade/<int:cno>/', course_views.input_grade, name='input_grade'),
     path('release_homework/<int:cno>/', course_views.release_homework, name='release_homework'),
+    path('course_homepage/<str:cname>/', course_views.course_homepage, name='course_homepage'),#注意，参数是字符串型的课程名字
 ]

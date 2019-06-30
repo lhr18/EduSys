@@ -5,6 +5,13 @@
 </head>
 <body>
     科目：{{cname}}</br>
+    <form method="post">
+    {% csrf_token %}
+    {{form}}
+    <br/>
+    <input type="submit" value="录入">
+    </form>
+    </br>
     {% for stu in sc %}
     {{stu.username}}
     {{stu.score}}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import AddHomework
+from .forms import AddScore
 
 from apps.login.models import stu_info
 from apps.course.models import course_cond
@@ -43,7 +44,20 @@ def input_grade(request, cno):
     for stu in sc:
         sname = stu_info.objects.filter(username = stu.username)[0].name
         stu.username = sname
-    return render(request, 'input_grade.html', {'cname':cname, 'sc':sc})
+    #
+    if request.method == 'POST':# 当提交表单时
+        form = AddScore(request.POST) # form 包含提交的数据
+        if form.is_valid():# 如果提交的数据合法
+            myname = form.cleaned_data['name']
+            myscore = form.cleaned_data['score']
+            uname = stu_info.objects.filter(name = myname)[0].username
+            stu_course.objects.filter(username = uname, course_no = cno).update(score = myscore)
+            return HttpResponse('修改成功')
+
+    else:# 当正常访问时
+        form = AddScore()
+    #
+    return render(request, 'input_grade.html', {'cname':cname, 'sc':sc, 'form':form})
  
 def release_homework(request, cno):
     cname = course_info.objects.filter(course_no = cno)[0].course_name
@@ -57,4 +71,10 @@ def release_homework(request, cno):
     else:# 当正常访问时
         form = AddHomework()
     return render(request, 'release_homework.html', {'form': form, 'cname':cname}) 
+ 
+def course_homepage(request, cname):  
+    cno = course_info.objects.filter(course_name = cname)[0].course_no
+    homeworks = homework.objects.filter(course_no = cno)
+    return render(request, 'course_homepage.html', {'homeworks': homeworks, 'cname':cname})
+
  

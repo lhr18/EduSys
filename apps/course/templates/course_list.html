@@ -7,8 +7,8 @@
 <body>
     已选课程：</br>
     {% for course in course_list %} 
-    {{course.course_no}}
-    
+    <a href="{% url 'course_homepage' course.course_no %}"><button>课程主页</button></a>
+    {{course.course_no}}   
     {{course.score}}
     </br>
     {% endfor %}

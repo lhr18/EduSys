@@ -1,0 +1,15 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发布作业</title>
+</head>
+<body>
+    科目：{{cname}}</br>
+    <form method="post">
+    {% csrf_token %}
+    {{form}}
+    <br/>
+    <input type="submit" value="发布">
+    </form>
+</body>
+</html>

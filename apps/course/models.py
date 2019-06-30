@@ -25,4 +25,11 @@ class stu_course(models.Model):
     
     def __str__(self):
         return self.username + ' ' + self.course_no
+
+class homework(models.Model):
+    course_no = models.CharField(max_length=30)
+    content = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.course_no
         

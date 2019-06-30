@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import AddHomework
 
 from apps.login.models import stu_info
 from apps.course.models import course_cond
 from apps.course.models import course_info
 from apps.course.models import stu_course
+from apps.course.models import homework
 # Create your views here.
 def elective(request):
     stu = stu_info.objects.filter(username = request.session['username'])
@@ -36,9 +38,23 @@ def list_course(request):
  
 def input_grade(request, cno):
     #TODO: finish
-    return HttpResponse('input_grade'+str(cno))
+    cname = course_info.objects.filter(course_no = cno)[0].course_name
+    sc = stu_course.objects.filter(course_no = cno)
+    for stu in sc:
+        sname = stu_info.objects.filter(username = stu.username)[0].name
+        stu.username = sname
+    return render(request, 'input_grade.html', {'cname':cname, 'sc':sc})
  
 def release_homework(request, cno):
-    #TODO: finish
-    return HttpResponse('release_homework'+str(cno))
+    cname = course_info.objects.filter(course_no = cno)[0].course_name
+    if request.method == 'POST':# 当提交表单时
+        form = AddHomework(request.POST) # form 包含提交的数据
+        if form.is_valid():# 如果提交的数据合法
+            cont = form.cleaned_data['content']
+            homework.objects.create(course_no = cno, content = cont)
+            return HttpResponse('作业上传成功')
+
+    else:# 当正常访问时
+        form = AddHomework()
+    return render(request, 'release_homework.html', {'form': form, 'cname':cname}) 
  

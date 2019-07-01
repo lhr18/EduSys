@@ -2,17 +2,33 @@
 <head>
     <meta charset="utf-8">
     <title>教师主页</title>
+    <style>
+        button{
+            height: 40px;
+            width: 140px;
+            background-color: #fff67cd5;
+        }
+    </style>
 </head>
-<h1>教师主页</h1>
 <body>
-    用户名：{{username}}</br>
-    课程列表：</br>
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;欢迎您，{{username}}<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;课程列表：</br></h2>
+    <table border="1" style="margin-left:50px">
     {% for course in clist %} 
-    <a href="{% url 'input_grade' course.course_no %}"><button>录入成绩</button></a>
-    <a href="{% url 'release_homework' course.course_no %}"><button>上传作业</button></a>
-    {{course.course_name}}
-    </br>    
+    <tr>
+        <td>
+        <a href="{% url 'input_grade' course.course_no %}"><button>录入成绩</button></a>
+        </td>
+        <td>
+        <a href="{% url 'release_homework' course.course_no %}"><button>上传作业</button></a>
+        </td>
+        <td style="width: 300px;text-align:center">{{course.course_name}}</td>
+    </tr>
     {% endfor %}
-    
+
+    </table>
+    </div>
 </body>
 </html>

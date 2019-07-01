@@ -2,15 +2,31 @@
 <head>
     <meta charset="utf-8">
     <title>课表和成绩</title>
+    <style>
+        button{
+            height: 40px;
+            width: 140px;
+            background-color: #fff67cd5;
+        }
+    </style>
 </head>
-<h1>课表和成绩</h1>
 <body>
-    已选课程：</br>
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;课表和成绩<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;已选课程：</br></h2>
+    <table border="1" style="margin-left:50px">
     {% for course in course_list %} 
-    <a href="{% url 'course_homepage' course.course_no %}"><button>课程主页</button></a>
-    {{course.course_no}}   
-    {{course.score}}
-    </br>
+    <tr>
+        <td>
+            <a href="{% url 'course_homepage' course.course_no %}"><button>课程主页</button></a>
+        </td>
+        <td style="width: 300px;text-align:center">{{course.course_no}} </td>
+        <td style="width: 100px;text-align:center">{{course.score}}</td>
+    </tr>
     {% endfor %}
+
+    </table>
+    </div>
 </body>
 </html>

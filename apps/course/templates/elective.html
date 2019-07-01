@@ -2,15 +2,33 @@
 <head>
     <meta charset="utf-8">
     <title>选课界面</title>
+    <style>
+        button{
+            height: 40px;
+            width: 140px;
+            background-color: #fff67cd5;
+        }
+    </style>
 </head>
-<h1>选课界面</h1>
 <body>
-    可选课程：</br>
-    {% for i in course_list %} 
-    <a href="{% url 'record' i.info.course_no %}"><button>选课</button></a>
-    <a href="{% url 'giveup' i.info.course_no %}"><button>退课</button></a>
-    {{i.info.course_name}}
-    </br>
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;选课界面<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;可选课程：</br></h2>
+    <table border="1" style="margin-left:50px">
+    {% for i in course_list %}
+    <tr>
+        <td>
+            <a href="{% url 'record' i.info.course_no %}"><button>选课</button></a>
+        </td>
+        <td>
+            <a href="{% url 'giveup' i.info.course_no %}"><button>退课</button></a>
+        </td>
+        <td style="width: 300px;text-align:center">{{i.info.course_name}}</td>
+    </tr>
     {% endfor %}
+
+    </table>
+    </div>
 </body>
 </html>

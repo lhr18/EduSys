@@ -4,12 +4,16 @@
     <title>发布作业</title>
 </head>
 <body>
-    科目：{{cname}}</br>
-    <form method="post">
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;发布作业<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;科目：{{cname}}</br></h2>
+    <form method="post" style="text-align: center">
     {% csrf_token %}
     {{form}}
     <br/>
     <input type="submit" value="发布">
     </form>
+    </div>
 </body>
 </html>

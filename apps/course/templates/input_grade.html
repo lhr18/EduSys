@@ -4,18 +4,23 @@
     <title>录入成绩</title>
 </head>
 <body>
-    科目：{{cname}}</br>
-    <form method="post">
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;成绩录入<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;科目：{{cname}}</br></h2>
+    <form method="post" style="text-align: center">
     {% csrf_token %}
     {{form}}
-    <br/>
     <input type="submit" value="录入">
     </form>
-    </br>
+    <table border="1" style="margin-left:500px">
     {% for stu in sc %}
-    {{stu.username}}
-    {{stu.score}}
-    </br>
+    <tr>
+        <td style="width: 300px;text-align:center">{{stu.username}}</td>
+        <td style="width: 100px;text-align:center">{{stu.score}}</td>
+    </tr>
     {% endfor %}
+    </table>
+    </div>
 </body>
 </html>

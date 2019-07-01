@@ -2,11 +2,25 @@
 <head>
     <meta charset="utf-8">
     <title>学生主页</title>
+    <style>
+        button{
+            height: 40px;
+            width: 140px;
+            margin-top: 10px;
+            margin-left: 20px;
+            background-color: #fff67cd5;
+        }
+    </style>
 </head>
-<h1>学生主页</h1>
 <body>
-    用户名：{{username}}
+    <div id="container">
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;欢迎您，{{username}}</h1><br></div>
+    
+    <div id="menu" style="background-color: #aaffc0c9;width: 180px;height: 650px;float: left;">
     <a href="{% url 'ele_course'%}"><button>选课</button></a>
     <a href="{% url 'list_course'%}"><button>查看课程</button></a>
+    </div>
+    </div>
 </body>
 </html>

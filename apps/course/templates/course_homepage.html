@@ -3,12 +3,19 @@
     <meta charset="utf-8">
     <title>课程主页</title>
 </head>
-<h1>课程主页</h1>
 <body>
-    课程名：{{cname}}</br>
+    <div id="header" style="background-color: #cfcffdb6"><br>
+    <h1 style="font-family:STXingkai">&nbsp;课程主页<br></h1><br></div>
+    <div id="content" style="height: 650px;background-color: #f8f0d6d2"><br>
+    <h2 style="font-family:STXingkai">&nbsp;课程名：{{cname}}</br></h2>
+    <table border="1" style="margin-left:50px">
+    <tr><td style="width: 300px;text-align:center">作业列表</td></tr>
     {% for homework in homeworks %}
-    {{homework.content}}
-    </br>
+    <tr>
+        <td style="width: 300px;text-align:center">{{homework.content}}</td>
+    </tr>
     {% endfor %}
+    </table>
+    </div>
 </body>
 </html>
